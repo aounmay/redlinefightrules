@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>𝗥𝗘𝗗𝗟𝗜𝗡𝗘 𝗙𝗜𝗚𝗛𝗧</title>
+     <link rel="icon" type="image/png" href="img/logo" /> 
+    <link rel="stylesheet" href="https://cdn.discordapp.com/attachments/1428460755455578285/1449716294591975545/mylogo.png?ex=693fe903&is=693e9783&hm=3b28e6b1249bda55a751cd89e640a6a08f11335fcb3687f00e9ff3c904321114">
+    <style>
+        :root {
+            --primary-color: #0f587f;
+            --primary-light: #d3d3d3;
+            --primary-dark: #272727;
+            --secondary-color: #363636;
+            --secondary-light: #0f587f;
+            --secondary-dark: #0f587f;
+            --dark-color: #0f0165;
+            --darker-color: #120c26;
+            --light-color: #e0e0e0;
+            --lighter-color: #f0f0f0;
+            --accent-color: #0f587f;
+            --success-color: #0f587f;
+            --danger-color: #c62828;
+            --warning-color: #f9a825;
+            --info-color: #1565c0;
+            --border-radius: 10px;
+            --box-shadow: 0 10px 20px rgba(97, 116, 255, 0.3);
+            --transition: all 0.3s ease;
+        }
+        a {
+            font-family: 'Tajawal', sans-serif;
+        }
+        button {
+            font-family: 'Tajawal', sans-serif;
+        }
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--darker-color);
+            color: var(--light-color);
+            margin: 0;
+            padding: 0;
+            transition: var(--transition);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(97, 116, 255, 0.3) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(97, 116, 255, 0.3) 0%, transparent 20%),
+                radial-gradient(circle at 30% 50%, rgba(97, 116, 255, 0.3) 0%, transparent 25%),
+                radial-gradient(circle at 70% 30%, rgba(97, 116, 255, 0.3) 0%, transparent 25%);
+            background-size: 200% 200%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        /* Navbar Styles */
+        .navbar {
+            background: linear-gradient(135deg, rgba(97, 116, 255, 0.3), rgba(97, 116, 255, 0.3));
+            padding: 1rem 2rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--box-shadow);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo img {
+            height: 50px;
+            border-radius: 50%;
+        }
+        
+        .logo h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: var(--primary-light);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: var(--light-color);
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius);
+        }
+        
+        .nav-links a:hover {
+            background-color: rgba(97, 116, 255, 0.3);
+            color: var(--primary-light);
+        }
+        
+        .nav-links a.active {
+            background-color: var(--accent-color);
+            color: var(--lighter-color);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            color: var(--light-color);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            color: var(--primary-light);
+            transform: translateY(-3px);
+        }
+        
+        /* Page Content Styles */
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, rgba(97, 116, 255, 0.3), rgba(97, 116, 255, 0.3));
+            border-radius: var(--border-radius);
+            margin-bottom: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: var(--box-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://media.discordapp.net/attachments/1389674762577379334/1392991843565834341/1.3.png?ex=68718c40&is=68703ac0&hm=f984dd32f29bc4cecef30277b1f7d1def0ae83b93f02763ce1547fc14ed5fca4&=&format=webp&quality=lossless') no-repeat center center;
+            background-size: cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-light);
+            animation: fadeInDown 1s ease;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .btn {
+            background: var(--accent-color);
+            color: var(--lighter-color);
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: bold;
+            box-shadow: var(--box-shadow);
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn:hover {
+            background: var(--primary-color);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(97, 116, 255, 0.3);
+        }
+        
+        /* Social Media Section */
+        .social-media {
+            background: linear-gradient(135deg, rgba(97, 116, 255, 0.3), rgba(97, 116, 255, 0.3));
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 3rem;
+            border: 1px solid rgba(97, 116, 255, 0.3);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+        }
+        
+        .social-media h2 {
+            color: var(--primary-light);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .social-media p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+        
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .stat-icon {
+            font-size: 2rem;
+            color: var(--primary-light);
+        }
+        
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-light);
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .divider {
+            width: 1px;
+            background-color: rgba(97, 116, 255, 0.3);
+        }
+        
+        /* Links Section */
+        .links-section {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .link-card {
+            flex: 1;
+            background: linear-gradient(135deg, rgba(97, 116, 255, 0.3), rgba(97, 116, 255, 0.3));
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+        
+        .link-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(97, 116, 255, 0.3);
+        }
+        
+        .link-card h3 {
+            color: var(--primary-light);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .link-card p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(97, 116, 255, 0.3), rgba(10, 10, 10, 0.9));
+            border-radius: var(--border-radius);
+            margin-top: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-links a {
+            color: var(--light-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-light);
+        }
+        
+        .footer-divider {
+            height: 1px;
+            background-color: rgba(97, 116, 255, 0.3);
+            margin: 1.5rem 0;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .social-icons a {
+            color: var(--light-color);
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+        
+        .social-icons a:hover {
+            color: var(--primary-light);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+        
+        /* Rules Page */
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .law-btn {
+            background: rgba(97, 116, 255, 0.3);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: bold;
+            box-shadow: var(--box-shadow);
+            min-width: 200px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .law-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(97, 116, 255, 0.3);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .law-btn.active {
+            background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(97, 116, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .law-section {
+            display: none;
+            background: linear-gradient(135deg, rgba(97, 116, 255, 0.3), rgba(97, 116, 255, 0.3));
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        .law-section.active {
+            display: block;
+        }
+        
+        .rules-page h2 {
+            color: var(--primary-light);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .rules-page h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-color), transparent);
+            border-radius: 3px;
+        }
+        
+        .collapse-container {
+            margin-bottom: 1rem;
+        }
+        
+        .collapse-btn {
+            background: linear-gradient(135deg, rgba(15, 15, 15, 0.95), rgba(10, 10, 10, 0.9));
+            color: white;
+            border: none;
+            padding: 1rem 1.5rem;
+            width: 100%;
+            text-align: right;
+            cursor: pointer;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            font-weight: bold;
+            font-size: 1.1rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .collapse-btn:hover {
+            background: linear-gradient(135deg, rgba(0, 30, 255, 0.3), rgba(15, 15, 15, 0.9));
+        }
+        
+        .collapse-btn::after {
+            content: '+';
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+        
+        .collapse-btn.active::after {
+            content: '-';
+        }
+        
+        .collapse-content {
+            background: rgba(0, 60, 255, 0.288);
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(0, 0, 0, 0.3);
+            border-top: none;
+        }
+        
+        .collapse-content.show {
+            max-height: 5000px;
+        }
+        
+        .collapse-content-inner {
+            padding: 1.5rem;
+        }
+        
+        ul {
+            list-style-type: none;
+            padding-right: 1rem;
+        }
+        
+        li {
+            position: relative;
+            padding-right: 1.5rem;
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        li::before {
+            content: '•';
+            position: absolute;
+            right: 0;
+            color: var(--primary-light);
+            font-weight: bold;
+        }
+        
+        .note {
+            background: rgba(249, 168, 37, 0.1);
+            padding: 1.5rem;
+            border-right: 5px solid var(--warning-color);
+            margin: 2rem 0;
+            border-radius: var(--border-radius);
+            position: relative;
+        }
+        
+        .note strong {
+            color: var(--warning-color);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Tutorials Page */
+        .tutorials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .tutorial-card {
+            background: linear-gradient(135deg, rgba(0, 30, 255, 0.3), rgba(0, 30, 255, 0.3));
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+        
+        .tutorial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 30, 255, 0.3);
+        }
+        
+        .rules-video {
+            width: 560px;
+            height: 315px;
+            object-fit: fill;
+        }
+
+        .tutorial-video {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .tutorial-info {
+            padding: 1.5rem;
+        }
+        
+        .tutorial-info h3 {
+            color: var(--primary-light);
+            margin-bottom: 0.5rem;
+        }
+        
+        .tutorial-info p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+        
+        /* Jobs Page */
+        .jobs-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .job-card {
+            background: linear-gradient(135deg, rgba(0, 30, 255, 0.3), rgba(10, 10, 10, 0.9));
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 30, 255, 0.3);
+        }
+        
+        .job-card h3 {
+            color: var(--primary-light);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .job-card p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.5rem;
+        }
+        
+        .job-card.disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: linear-gradient(135deg, rgba(20, 20, 20, 0.95), rgba(0, 30, 255, 0.3));
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            width: 90%;
+            max-width: 500px;
+            border: 1px solid rgba(0, 30, 255, 0.3);
+            box-shadow: var(--box-shadow);
+            animation: modalFadeIn 0.3s ease;
+        }
+        
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .modal-header h3 {
+            color: var(--primary-light);
+            margin: 0;
+        }
+        
+        .close-modal {
+            background: none;
+            border: none;
+            color: var(--light-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .close-modal:hover {
+            color: var(--primary-light);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 0.8rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: var(--border-radius);
+            color: white;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary-light);
+            box-shadow: 0 0 0 2px rgba(0, 30, 255, 0.3);
+        }
+        
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        /* Notification */
+        .notification {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--success-color);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            z-index: 1001;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .notification.error {
+            background: var(--danger-color);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 0.5rem;
+                width: 100%;
+            }
+            
+            .nav-links a {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .links-section {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .divider {
+                display: none;
+            }
+            
+            .buttons-container {
+                flex-direction: column;
+            }
+            
+            .law-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="container">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="#" onclick="showPage('home')">
+                    <img src="https://cdn.discordapp.com/attachments/1424512950324039840/1469277739918819368/LOGO1.png?ex=69871307&is=6985c187&hm=aaf93178588d1171bc41055268610011de75db074cd2c0f791102661d85f2d76" alt="𝗥𝗘𝗗𝗟𝗜𝗡𝗘 𝗙𝗜𝗚𝗛𝗧">
+                </a>
+            </div>
+            
+            <div class="nav-links">
+                <a href="#" class="active" onclick="showPage('home')">Home</a>
+                <a href="#" onclick="showPage('rules')">Rules</a>
+            </div>
+            
+            <div class="social-links">
+                <a href="https://discord.gg/ax7gpuAS" target="_blank" style="text-decoration: none;">Join Discord<i style="padding-right: 10px;" class="fab fa-discord"></i></a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero-content">
+                    <h1>مرحبًا بك في 𝗥𝗘𝗗𝗟𝗜𝗡𝗘 𝗙𝗜𝗚𝗛𝗧</h1>
+                    <p>جاهدين في تقديم أفضل تجربة RP في الشرق الأوسط</p>
+                    <a href="#" class="btn" onclick="showPage('rules')">انضم إلينا الآن</a>
+                </div>
+            </section>
+
+            <!-- Social Media Section -->
+            <section class="social-media">
+                <h2>منصات التواصل</h2>
+                <p>مجتمع 𝗥𝗘𝗗𝗟𝗜𝗡𝗘 𝗙𝗜𝗚𝗛𝗧 يمتلك حضورًا قويًا على منصات التواصل الاجتماعي</p>
+                
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-icon"><i class="fab fa-discord"></i></div>
+                        <div>
+                            <div class="stat-number">20+</div>
+                            <div class="stat-label">أعضاء في الدسكورد</div>
+                        </div>
+                    </div>
+                    
+                    <div class="divider"></div>
+                    
+                    <div class="stat-item">
+                        <div class="stat-icon"><i class="fas fa-users"></i></div>
+                        <div>
+                            <div class="stat-number">300+</div>
+                            <div class="stat-label">متابعين على السوشيال ميديا</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Links Section -->
+            <section class="links-section">
+                <div class="link-card">
+                    <h3><i class="fas fa-info-circle"></i> من نحن</h3>
+                    <p>سيرفر 𝗥𝗘𝗗𝗟𝗜𝗡𝗘 𝗙𝗜𝗚𝗛𝗧 سيرفر FiveM مختص بنظام FIGHT تأسس عام 2026 بهدف تقديم تجربة استثنائية</p>
+                </div>
+                
+                <div class="link-card">
+                    <h3><i class="fa-solid fa-book"></i> القوانين</h3>
+                    <p>القوانين تهدف إلى ضمان المتعة والاحترام بين اللاعبين، مع تنظيم سير اللعب بطريقة عادلة</p>
+                    <a href="#" class="btn" onclick="showPage('rules')">اطلاع على القوانين</a>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Rules Page -->
+    <div id="rules" class="page">
+        <div class="container">
+            <div class="rules-page">
+                <h1><i class="fa-solid fa-book"></i> قوانين السيرفر</h1>
+                <p>يمكنك قراءة القوانين بحسب تصنيفها</p>
+
+                <div class="buttons-container">
+                    <button class="law-btn active" onclick="showLawSection('server-laws')">
+                        <i class="fa-solid fa-city"></i></i> Server Rules
+                    </button>
+                    <button class="law-btn" onclick="showLawSection('police-laws')">
+                        <i class="fas fa-shield-alt"></i> Rank Rules
+                    </button>
+                    <button class="law-btn" onclick="showLawSection('crime-laws')">
+                        <i class="fas fa-skull"></i> Fight Up Rules
+                    </button>
+                    <!--
+                    <button class="law-btn" onclick="showLawSection('safezones-laws')">
+                        <i class="fas fa-skull"></i> Safe Zones
+                    </button>
+                    -->
+                    
+                </div>
+
+                <!-- قوانين السيرفر -->
+                <div id="server-laws" class="law-section active">
+                    <h2><i class="fa-solid fa-city"></i> قوانين السيرفير</h2>
+                    
+                    <div class="collapse-container">
+                        <button class="collapse-btn">اساسية</button>
+                        <div class="collapse-content">
+                            <div class="collapse-content-inner">
+                                <ul>
+                                    <li>الاحترام بين اللاعبين داخل السيرفر</li>
+                                    <li>يمنع التحدث بالسياسه والاعراض والدين وايضا المضايقات وفي حال تم رصد اياً منها ( باند نهائي )</li>
+                                    <li>يمنع لبس الخوذ بجميع انواعها</li>
+                                    <li> يمنع منعاً باتاً استخدام اي قلتش او استخدام ثغره او هاك بجميع انواعه ومن يستخدم اياَ منها يعرض نفسه للمساءله القانونية ( عقوبتها باند نهائي )</li>
+                                    <li>يجب تشغيل برنامج التصوير ( 20 د) اثناء اللعب وسيتم محاسبتك في حال عدم وجوده</li>
+                                    <li>يمنع منعاً باتاً الستريم سنايب, الستريم سنابب بمقصد التخريب باند نهائي</li>
+                                    <li> BOT يمنع منعاً باتاً لبس اللبس الجاهز  سكن الـ</li>
+                                     <li>يمنع منعاً باتاً استخدام اي ملف مخالف ( عقوبتها باند نهائي )</li>
+                                     <li>ممنوع تدبيل اي ايتم منعا باتا</li>
+                                      <li>يمنع استخدام البرامج الخارجية الذي تؤثر في طريقة لعبك</li>
+                                      <li>يمنع استخدام اي اداءة للتحكم ( اللعب) غير الماوس والكيبورد</li>
+                                      <li>يمنع منعاً باتاً استخدام اي برنامج للصوت بمعنى ( يوثر على الصوت او تغير الصوت بشكل عام )</li>
+                                      <li>يمنع عليك ازاله اي اوبجيكت مثل الاشجار و البوشات</li>
+                                      <li>يمنع عليك استعمال اي برنامج خارجي يساعدك على اللعب ( اي برنامج : موفمنت . تثبيت ايم )</li>
+                                      <li>كنسلة الشقلبه ممنوعة</li>
+                                      <li>يمنع سبيد بوست</li>
+                                      <li>يمنع التبقيس بالأماكن العامه</li>
+                                      <li>يمنع السبام بالشات</li>
+                                      <li>يمنع انتحال شخصية بأي شكل من الأشكال</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    
+                    <div class="note">
+                        <strong>ملاحظة:</strong>
+                        <ul>
+                            <li>يحق للرقابه المحاسبه على جميع الاخطاء حتى لو لم تكن ضمن القوانين</li>
+                            <li>لا يحق لك مخالفة القوانين (حتى لو رأيت شخص يخالفها قم بمجارته بالاحداث والاستكمال معه حتى النهاية) بعد ذلك قم برفع شكوى في الدسكورد</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- قوانين الرانك -->
+                <div id="police-laws" class="law-section">
+                    <h2><i class="fas fa-shield-alt"></i> قوانين الرانك</h2>
+                    
+                    <div class="collapse-container">
+                        <button class="collapse-btn">أساسية</button>
+                        <div class="collapse-content">
+                            <div class="collapse-content-inner">
+                                <ul> 
+                                    <li>يمنع الانعاش (help frind)</li>
+                                    <li> ممنوع لعب سبيد بوست</li>
+                                    <li>Q يمنع الـ</li>
+                                    <li>يمنع منعاً باتاً استخدام اي قلتش او استخدام ثغره</li>
+                                    <li>يمنع التوكسك منعا باتا</li>
+                                    <li>يمنع لبس الخوذ بجميع انواعها</li>
+                                    <li>يمنع اللعب و انت واقف</li>
+                                    <li>يمنع المنطقه الزرقاء ( بالرن قن )</li>
+                                    <li> يمنع التبقيس بالرانك منعأ بتأتا</li>
+                                    <li>ممنوع التخريم منعا باتاً</li>
+                                    <li> يمنع انك تتفق مع شخص لرفع الرانك في حال رصد عليك ذالك بيتم محاسبتك</li>
+                                    <li>المابات الي حدودها مفتوحه زي مابات القانق وار ممنوع تتعدا حدودها</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                   
+                                    <br>
+                                    <div class="note">
+                                        <strong>ملاحظة:</strong>
+                                        <ul>
+                                            <li>جهلك للقانون لا يعفيك من العقوبة</li>
+                                        </ul>
+                                    </div>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+
+                <!-- قوانين الاجرام -->
+                <div id="crime-laws" class="law-section">
+                    <h2><i class="fas fa-skull"></i> قوانين الترفيع</h2>
+                    
+                    <!-- محتوى قوانين الاجرام -->
+                    <div class="collapse-container">
+                        <button class="collapse-btn">قوانين الترفيع</button>
+                        <div class="collapse-content">
+                            <div class="collapse-content-inner">
+                                <ul>
+                                    <li>في حال هددت شخص ورفع يده يمنع قتله</li>
+                                    <li>ممنوع القتل بدون التهديد</li>
+                                    <li>في حال تيمت مع شخص او اكثر يجب عليكم لبس نفس الطقم</li>
+                                    <li>في حال تيمت مع شخص او اكثر يجب عليكم لبس نفس الطقم</li>
+                                    <li>بعد تهديد الشخص بامكانك قتله بعد ثانيتين</li>
+                                    <li>يمنع الصدم العشوائي</li>
+                                    <li>يمنع تقديم الاهانة لشخص المسقط</li>
+                                    <li>يمنع التبقيس في الفايت</li>
+                                    <li>يمنع التدخل في فايت أو تهديد ليس لك علاقة فيهم</li>
+                                    <li>يمنع منعا باتا السبيد بوست</li>
+                                    <li>منع منعا باتا كنسلة الشقلبه</li>
+                                    <li>الحد الأقصى لعدد التيم هو 7 أشخاص</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                     <br>
+                                    <div class="note">
+                                        <strong>ملاحظة:</strong>
+                                        <ul>
+                                            <li>جهلك للقانون لا يعفيك من العقوبة</li>
+                                        </ul>
+                                    </div>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--____________-->
+                    <div class="collapse-container">
+                       
+                        <div class="collapse-content">
+                            <div class="collapse-content-inner">
+                                <ul>
+                                    <li>Store Robbery - Police (4-5) | Crimenals (1-3)</li>
+                                    <li>ATM Robbery - Police (3-5) | Crimenals (1-3)</li>
+                                    <li>House Robbery - Police (4-6) | Crimenals (1-4)</li>
+                                    <li>Police Staff house - Police (5-7) | Crimenals (2-5)</li>
+                                    <li>DigitalDen Robbery - Police (5-7) | Crimenals (2-2)</li>
+                                    <li>Laundromat Robbery - Police (5-7) | Crimenals (2-5)</li>
+                                    <li>Cash Exchange Robbery - Police (5-8) | Crimenals (3-6)</li>
+                                    <li>Maze Bank - Police (10-12) | Crimenals (5-10)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--____________-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tutorials Page -->
+    <div id="tutorials" class="page">
+        <div class="container">
+            <h1><i class="fa-solid fa-clapperboard"></i> الشروحات</h1>
+            <p>شروحات مرئية لمساعدتك في فهم السيرفر</p>
+
+            <div class="tutorials-grid">
+
+                <!--________________-->
+
+                <div class="tutorial-card">
+                    <iframe class="tutorial-video" width="560" height="315" src="https://cdn.discordapp.com/attachments/1395129387954864410/1407385504646692884/-01-Main-Render-ME111.gif?ex=68a5e964&is=68a497e4&hm=f82a3e985cda8502a002b71ba759e607f90d699dd2be2240e44698a8190db4b8&" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <div class="tutorial-info">
+                        <h3>شرح نظام التفعيل</h3>
+                        <p>سيتم اضافته قريباً</p>
+                    </div>
+                </div>
+                
+                <!--________________-->
+
+                <div class="tutorial-card">
+                    <iframe class="tutorial-video" width="560" height="315" src="https://cdn.discordapp.com/attachments/1395129387954864410/1407385504646692884/-01-Main-Render-ME111.gif?ex=68a5e964&is=68a497e4&hm=f82a3e985cda8502a002b71ba759e607f90d699dd2be2240e44698a8190db4b8&" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <div class="tutorial-info">
+                        <h3>شرح تقديم الشرطة</h3>
+                        <p>سيتم اضافته قريباً</p>
+                    </div>
+                </div>
+                
+                <!--________________-->
+
+                <div class="tutorial-card">
+                    <iframe class="tutorial-video" width="560" height="315" src="https://cdn.discordapp.com/attachments/1395129387954864410/1407385504646692884/-01-Main-Render-ME111.gif?ex=68a5e964&is=68a497e4&hm=f82a3e985cda8502a002b71ba759e607f90d699dd2be2240e44698a8190db4b8&" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <div class="tutorial-info">
+                        <h3>شرح تقديم الصحة</h3>
+                        <p>سيتم اضافته قريباً</p>
+                    </div>
+                </div>
+                
+                <!--________________-->
+
+                <div class="tutorial-card">
+                    <iframe class="tutorial-video" width="560" height="315" src="https://cdn.discordapp.com/attachments/1395129387954864410/1407385504646692884/-01-Main-Render-ME111.gif?ex=68a5e964&is=68a497e4&hm=f82a3e985cda8502a002b71ba759e607f90d699dd2be2240e44698a8190db4b8&" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <div class="tutorial-info">
+                        <h3>شرح نظام الميكانيك</h3>
+                        <p>سيتم اضافته قريباً</p>
+                    </div>
+                </div>
+                
+                <!--________________-->
+
+                <div class="tutorial-card">
+                    <iframe class="tutorial-video" width="560" height="315" src="https://cdn.discordapp.com/attachments/1395129387954864410/1407385504646692884/-01-Main-Render-ME111.gif?ex=68a5e964&is=68a497e4&hm=f82a3e985cda8502a002b71ba759e607f90d699dd2be2240e44698a8190db4b8&" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <div class="tutorial-info">
+                        <h3>شرح نظام العصابات</h3>
+                        <p>سيتم اضافته قريباً</p>
+                    </div>
+                </div>
+
+                <!--________________-->
+
+                <div class="tutorial-card">
+                    <iframe class="tutorial-video" width="560" height="315" src="https://cdn.discordapp.com/attachments/1395129387954864410/1407385504646692884/-01-Main-Render-ME111.gif?ex=68a5e964&is=68a497e4&hm=f82a3e985cda8502a002b71ba759e607f90d699dd2be2240e44698a8190db4b8&" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <div class="tutorial-info">
+                        <h3>شرح نظام المشاريع</h3>
+                        <p>سيتم اضافته قريباً</p>
+                    </div>
+                </div>
+
+                <!--________________-->
+
+                <div class="tutorial-card">
+                    <iframe class="tutorial-video" width="560" height="315" src="https://cdn.discordapp.com/attachments/1395129387954864410/1407385504646692884/-01-Main-Render-ME111.gif?ex=68a5e964&is=68a497e4&hm=f82a3e985cda8502a002b71ba759e607f90d699dd2be2240e44698a8190db4b8&" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <div class="tutorial-info">
+                        <h3>شرح وظيفة Taxi</h3>
+                        <p>سيتم اضافته قريباً</p>
+                    </div>
+                </div>
+
+                <!--________________-->
+
+                <div class="tutorial-card">
+                    <iframe class="tutorial-video" width="560" height="315" src="https://cdn.discordapp.com/attachments/1395129387954864410/1407385504646692884/-01-Main-Render-ME111.gif?ex=68a5e964&is=68a497e4&hm=f82a3e985cda8502a002b71ba759e607f90d699dd2be2240e44698a8190db4b8&" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <div class="tutorial-info">
+                        <h3>شرح وظيفة الصيد</h3>
+                        <p>سيتم اضافته قريباً</p>
+                    </div>
+                </div>
+
+                <!--________________-->
+
+                <div class="tutorial-card">
+                    <iframe class="tutorial-video" width="560" height="315" src="https://cdn.discordapp.com/attachments/1395129387954864410/1407385504646692884/-01-Main-Render-ME111.gif?ex=68a5e964&is=68a497e4&hm=f82a3e985cda8502a002b71ba759e607f90d699dd2be2240e44698a8190db4b8&" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <div class="tutorial-info">
+                        <h3>شرح وظيفة Recycl</h3>
+                        <p>سيتم اضافته قريباً</p>
+                    </div>
+                </div>
+
+                <!--________________-->
+
+                <div class="tutorial-card">
+                    <iframe class="tutorial-video" width="560" height="315" src="https://cdn.discordapp.com/attachments/1395129387954864410/1407385504646692884/-01-Main-Render-ME111.gif?ex=68a5e964&is=68a497e4&hm=f82a3e985cda8502a002b71ba759e607f90d699dd2be2240e44698a8190db4b8&" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <div class="tutorial-info">
+                        <h3>شرح Pawnshop</h3>
+                        <p>سيتم اضافته قريباً</p>
+                    </div>
+                </div>
+
+                <!--________________-->
+                
+                <!--
+                    <div class="tutorial-card">
+                    <iframe class="tutorial-video" width="560" height="315" src="https://cdn.discordapp.com/attachments/1395129387954864410/1407385504646692884/-01-Main-Render-ME111.gif?ex=68a5e964&is=68a497e4&hm=f82a3e985cda8502a002b71ba759e607f90d699dd2be2240e44698a8190db4b8&" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <div class="tutorial-info">
+                            <h3>شرح</h3>
+                            <p>سيتم اضافته قريباً</p>
+                        </div>
+                    </div>
+                -->
+                <!--________________-->
+            </div>
+        </div>
+    </div>
+
+    <!-- Jobs Page -->
+    <div id="jobs" class="page">
+        <div class="container">
+            <h1><i class="fa-solid fa-paper-plane"></i> تقديم الوظائف</h1>
+            <p>اختر الوظيفة التي ترغب في التقديم عليها</p>
+            
+            <div class="jobs-container">
+                <div class="job-card" id="police-job">
+                    <h3><i class="fas fa-shield-alt"></i> تقديم LSPD</h3>
+                    <p>انضم إلى قوات الشرطة وكن جزءًا من حفظ الأمن</p>
+                    <button class="btn" onclick="openJobModal('police')">تقديم الآن</button>
+                </div>
+                
+                <div class="job-card" id="ems-job">
+                    <h3><i class="fas fa-ambulance"></i> تقديم EMS</h3>
+                    <p>انضم إلى فريق الإسعاف وأنقذ الأرواح</p>
+                    <button class="btn" onclick="openJobModal('ems')">تقديم الآن</button>
+                </div>
+                
+                <div class="job-card" id="staff-job">
+                    <h3><i class="fas fa-gavel"></i> تقديم الادارة</h3>
+                    <p>انضم إلى الادارة لمعاونة الاداريين</p>
+                    <button class="btn" onclick="openJobModal('staff')">تقديم الآن</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Job Application Modal -->
+    <div class="modal" id="job-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">تقديم على وظيفة</h3>
+                <button class="close-modal" onclick="closeModal()">&times;</button>
+            </div>
+            
+            <form id="job-form">
+                <input type="hidden" id="job-type">
+                
+                <div class="form-group">
+                    <label for="character-name">Name :</label>
+                    <input type="text" id="character-name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="character-id">Steam :</label>
+                    <input type="text" id="character-id" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone-number">Your Available Time :</label>
+                    <input type="text" id="phone-number" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="discord-user">Copy id Discord:</label>
+                    <input type="text" id="discord-user" required>
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn" onclick="closeModal()">Cancel</button>
+                    <button type="submit" class="btn">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <i class="fas fa-check-circle"></i>
+        <span id="notification-message">تم ارسال تقديمك وستصلك رسالة القبول بالدسكورد</span>
+    </div>
+
+    <!-- Footer -->
+    <div class="container">
+        <footer class="footer">
+            <div class="social-icons">
+                <a href="www.youtube.com/@2_PLAYER" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.tiktok.com/@rd1234113?_r=1&_t=ZS-928mSN1a8KD" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/cityredline?igsh=YXV5N2Z4bWphaXp6" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://discord.gg/ax7gpuAS" target="_blank"><i class="fab fa-discord"></i></a>
+            </div>
+            
+            <div class="footer-divider"></div>
+            
+            <div class="copyright">
+                جميع الحقوق محفوظة © 𝗥𝗘𝗗𝗟𝗜𝗡𝗘・𝗙𝗜𝗚𝗛𝗧 2026 
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Job Applications Config
+        const jobConfig = {
+            police: { open: true, webhook: "https://discord.com/api/webhooks/1468597999520317493/pSbmpFIwC1LneS91A--iD6_VU80PUljdZ3JKULZWwVCjq6KT5Bei8kN5HEasd6zJOM1o" },
+            ems: { open: true, webhook: "https://discord.com/api/webhooks/1465692818633789607/IOh2I_wKPc6pf9GnLcZ-8FodeL2eDJCUIFvn5hC44zNy6ZtZMkOh44g9ZYIOWkjsTPG7" },
+            staff: { open: true, webhook: "https://discord.com/api/webhooks/1468597999520317493/pSbmpFIwC1LneS91A--iD6_VU80PUljdZ3JKULZWwVCjq6KT5Bei8kN5HEasd6zJOM1o" }
+        };
+
+        // Show Page Function
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update active nav link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Find and activate the corresponding nav link
+            const navLinks = document.querySelectorAll('.nav-links a');
+            for (let i = 0; i < navLinks.length; i++) {
+                if (navLinks[i].getAttribute('onclick') === `showPage('${pageId}')`) {
+                    navLinks[i].classList.add('active');
+                    break;
+                }
+            }
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+        
+        // Show Law Section Function
+        function showLawSection(sectionId) {
+            // Hide all law sections
+            document.querySelectorAll('.law-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show selected law section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Update active law buttons
+            document.querySelectorAll('.law-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Find and activate the corresponding law button
+            const lawBtns = document.querySelectorAll('.law-btn');
+            for (let i = 0; i < lawBtns.length; i++) {
+                if (lawBtns[i].getAttribute('onclick') === `showLawSection('${sectionId}')`) {
+                    lawBtns[i].classList.add('active');
+                    break;
+                }
+            }
+        }
+        
+        // Collapse/Expand for Law Sections
+        document.querySelectorAll('.collapse-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const content = this.nextElementSibling;
+                
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                    content.classList.remove('show');
+                } else {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    content.classList.add('show');
+                }
+            });
+        });
+        
+        // Job Application Modal Functions
+        function openJobModal(jobType) {
+            if (!jobConfig[jobType].open) {
+                showNotification('التقديم مغلق حالياً', true);
+                return;
+            }
+            
+            document.getElementById('job-type').value = jobType;
+            document.getElementById('modal-title').textContent = `تقديم ${getJobTitle(jobType)}`;
+            document.getElementById('job-modal').classList.add('active');
+        }
+        
+        function closeModal() {
+            document.getElementById('job-modal').classList.remove('active');
+            document.getElementById('job-form').reset();
+        }
+        
+        function getJobTitle(jobType) {
+            switch(jobType) {
+                case 'police': return 'LSPD';
+                case 'ems': return 'EMS';
+                case 'staff': return 'staff';
+                default: return 'وظيفة';
+            }
+        }
+        
+        // Notification Function
+        function showNotification(message, isError = false) {
+            const notification = document.getElementById('notification');
+            const notificationMsg = document.getElementById('notification-message');
+            
+            notificationMsg.textContent = message;
+            
+            if (isError) {
+                notification.classList.add('error');
+            } else {
+                notification.classList.remove('error');
+            }
+            
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 5000);
+        }
+        
+        // Form Submission
+        document.getElementById('job-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const jobType = document.getElementById('job-type').value;
+            const characterName = document.getElementById('character-name').value;
+            const characterId = document.getElementById('character-id').value;
+            const phoneNumber = document.getElementById('phone-number').value;
+            const discordUser = document.getElementById('discord-user').value;
+            
+            const webhookUrl = jobConfig[jobType].webhook;
+            const jobTitle = getJobTitle(jobType);
+            
+            // Prepare the data to send to Discord webhook
+            const data = {
+                content: `**New Apply ${jobTitle}**\n\n**Name :** ${characterName}\n**Steam :** ${characterId}\n**Your Available Time :** ${phoneNumber}\n**Copy Id :** ${discordUser}`
+            };
+            
+            // Send data to Discord webhook
+            fetch(webhookUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+            .then(response => {
+                if (response.ok) {
+                    showNotification('تم ارسال تقديمك وستصلك رسالة القبول بالدسكورد');
+                    closeModal();
+                } else {
+                    showNotification('حدث خطأ أثناء إرسال التقديم', true);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showNotification('حدث خطأ أثناء إرسال التقديم', true);
+            });
+        });
+        
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Auto-expand first collapse in each section
+            document.querySelectorAll('.law-section.active .collapse-container:first-child .collapse-btn').forEach(btn => {
+                btn.click();
+            });
+        });
+    </script>
+</body>
+
+</html>
